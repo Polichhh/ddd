@@ -1,4 +1,6 @@
 from django.db import models
+from django.core.validators import MinValueValidator
+from django.urls import reverse
 from django.contrib.auth.models import User
 from django.db.models import Sum
 
@@ -46,7 +48,10 @@ class Post(models.Model):
     rating = models.SmallIntegerField(default=0)
 
     def __str__(self):
-        return f'{self.title}: {self.text[:20]}'
+        return f'{self.name.title()}: {self.text[:20]}'
+
+    def get_absolute_url(self):
+        return reverse('post_detail', args=[str(self.id)])
 
     def like(self):
         self.rating += 1

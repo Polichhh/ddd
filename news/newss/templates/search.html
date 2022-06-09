@@ -1,4 +1,3 @@
-
 {% extends 'flatpages/default.html' %}
 {% load custom_filetrs %}
 {% load custom_tags %}
@@ -9,7 +8,7 @@ Post
 
 
 {% block content %}
-   <h1>Все новости</h1>
+   <h1>Поиск новостей</h1>
 
     <hr>
 
@@ -27,6 +26,7 @@ Post
                <td>Описание</td>
 
            </tr>
+
 
             {% for Post in Posts %}
             <tr>
